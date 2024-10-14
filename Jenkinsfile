@@ -21,10 +21,19 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Unit Tests') {
             steps {
-                // Run tests
-                sh 'echo Testing...'
+                sh 'mvn test'
+            }
+        }
+        stage('Integration Tests') {
+            steps {
+                sh 'mvn verify'
+            }
+        }
+        stage('Static Code Analysis') {
+            steps {
+                sh 'mvn sonar:sonar'
             }
         }
 
