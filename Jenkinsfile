@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from the GitHub repository
-                git url: 'https://github.com/hoverhawk79/Jenkins-gs-spring-boot.git'
+                git branch: 'main', url: 'https://github.com/hoverhawk79/Jenkins-gs-spring-boot.git'
             }
         }
 
