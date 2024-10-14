@@ -15,9 +15,9 @@ pipeline {
         stage('Build') {
             steps {
                 // Run your build steps, e.g., compiling code or running tests
-                
-                sh 'mvn clean install'
-                
+                dir('initial') { // 修改为你的 pom.xml 文件所在的目录
+                    sh 'mvn clean install'
+                }
             }
         }
 
