@@ -41,12 +41,15 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 dir('initial') { // 修改为你的 pom.xml 文件所在的目录
-                   withSonarQubeEnv('SonarQube') {
-                   sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.1.73:9000'
+                    withCredentials([string(credentialsId: 'sonar-token', variable: 'SQ_token')]) {
+                    withSonarQubeEnv('SonarQube') {
+                        sh "mvn sonar:sonar -Dsonar.login=$SQ_token"
+                    }
                    }
                 }
             }
         }
+
 
         stage('Deploy') {
             steps {
