@@ -38,10 +38,12 @@ pipeline {
                 }
             }
         }
-        stage('Static Code Analysis') {
+        stage('SonarQube Analysis') {
             steps {
                 dir('initial') { // 修改为你的 pom.xml 文件所在的目录
-                sh 'mvn sonar:sonar'
+                   withSonarQubeEnv('SonarQube') {
+                   sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.1.73:9000'
+                   }
                 }
             }
         }
