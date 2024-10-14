@@ -12,13 +12,14 @@ pipeline {
             }
         }
 
+        dir('initial')  // 修改为你的 pom.xml 文件所在的目录
+
         stage('Build') {
             steps {
                 // Run your build steps, e.g., compiling code or running tests
-                dir('initial') { // 修改为你的 pom.xml 文件所在的目录
-                    sh 'mvn clean install'
-                }
+                sh 'mvn clean install'
             }
+            
         }
 
         stage('Unit Tests') {
