@@ -41,9 +41,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 dir('initial') { // 修改为你的 pom.xml 文件所在的目录
-                    withCredentials([string(credentialsId: 'sonar-token', variable: 'SQ_token')]) {
+                    withCredentials([string(credentialsId: 'SQ_token', variable: 'SONAR_TOKEN')]) {
                     withSonarQubeEnv('SonarQube') {
-                        sh "mvn sonar:sonar -Dsonar.login=$SQ_token"
+                        sh "mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN"
                     }
                    }
                 }
