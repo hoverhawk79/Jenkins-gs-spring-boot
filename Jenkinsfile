@@ -15,9 +15,9 @@ pipeline {
         stage('Build') {
             steps {
                 // Run your build steps, e.g., compiling code or running tests
-                withMaven(maven: 'Maven_3.9.9'){
+                
                 sh 'mvn clean install'
-                }
+                
             }
         }
 
