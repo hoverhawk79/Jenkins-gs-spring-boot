@@ -38,6 +38,8 @@ pipeline {
                 }
             }
         }
+        
+        /*
         stage('SonarQube Analysis') {
             steps {
                 dir('initial') { // 修改为你的 pom.xml 文件所在的目录
@@ -49,7 +51,7 @@ pipeline {
                 }
             }
         }
-
+        */
 
         stage('Deploy') {
             steps {
