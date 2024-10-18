@@ -1,6 +1,6 @@
 name: Maven Package
 
-on: push
+on: 
 
 
 jobs:
